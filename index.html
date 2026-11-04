@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>Ember – Industrial Waste to Energy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0f0d;--p:#111a16;--p2:#16221c;--ln:#24352c;--tx:#eef3ef;--mu:#8fa398;--em:#ff7a1a;--lm:#b8f25a;--wa:#ff5a4d;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:radial-gradient(900px 500px at 85% -5%,#2a1608 0,transparent 60%),var(--bg);color:var(--tx);font:16px/1.55 "DM Sans",system-ui,sans-serif}
+h1,h2,h3,.lg{font-family:Outfit,"DM Sans",system-ui,sans-serif;margin:0}
+.w{max-width:1060px;margin:0 auto;padding:0 18px}
+nav{position:sticky;top:0;z-index:5;background:rgba(10,15,13,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--ln)}
+nav .w{display:flex;align-items:center;justify-content:space-between;height:58px;gap:12px}
+.lg{font-weight:800;font-size:1.25rem}.lg b{color:var(--em)}
+nav a{color:var(--mu);text-decoration:none;margin-left:16px;font-size:.92rem;font-weight:500}nav a:hover{color:var(--tx)}
+@media(max-width:640px){nav .m{display:none}}
+.hero{padding:64px 0 40px;display:grid;grid-template-columns:1.3fr 1fr;gap:20px;align-items:center}
+@media(max-width:760px){.hero{grid-template-columns:1fr;padding-top:36px}.hero svg{max-width:200px;margin:auto}}
+.tag{display:inline-block;color:var(--lm);border:1px solid #2f4a22;background:#14210f;padding:4px 12px;border-radius:99px;font-size:.8rem;font-weight:700;letter-spacing:.04em}
+h1{font-size:clamp(2.3rem,6vw,4rem);line-height:1.03;margin:16px 0;font-weight:800}h1 em{font-style:normal;color:var(--em)}
+.lead{color:var(--mu);font-size:1.1rem;max-width:520px}
+.btn{display:inline-block;padding:12px 22px;border-radius:12px;background:var(--em);color:#1a0d02;font:700 1rem "DM Sans",sans-serif;border:0;cursor:pointer;text-decoration:none}
+.btn.g{background:transparent;color:var(--tx);border:1px solid var(--ln)}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.pulse{animation:p 2.4s ease-in-out infinite;transform-origin:center}@keyframes p{50%{opacity:.55;transform:scale(.94)}}
+section{padding:46px 0}h2{font-size:1.9rem;font-weight:800;margin-bottom:6px}.sub{color:var(--mu);margin:0 0 22px;max-width:640px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}@media(max-width:760px){.g3{grid-template-columns:1fr}}
+.c{background:var(--p);border:1px solid var(--ln);border-radius:18px;padding:20px}
+.step b{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:#2a1608;color:var(--em);font-family:Outfit;font-size:1.1rem;margin-bottom:10px}
+.step h3{font-size:1.1rem}.step p{margin:4px 0 0;color:var(--mu);font-size:.93rem}
+.tiles{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-bottom:16px}
+@media(max-width:860px){.tiles{grid-template-columns:repeat(3,1fr)}}
+.tile{background:var(--p);border:1.5px solid var(--ln);border-radius:16px;padding:10px 6px 8px;color:var(--tx);cursor:pointer;font:600 .85rem "DM Sans",sans-serif;text-align:center}
+.tile svg{width:100%;height:64px}.tile small{display:block;color:var(--mu);font-weight:400;font-size:.72rem}
+.tile.on{border-color:var(--em);background:#1c140c;box-shadow:0 0 0 3px rgba(255,122,26,.18)}
+.calc{display:grid;grid-template-columns:1fr 1.2fr;gap:16px}@media(max-width:820px){.calc{grid-template-columns:1fr}}
+.pic{background:linear-gradient(160deg,#1c140c,var(--p));text-align:center}.pic svg{width:100%;max-width:260px;height:150px}.pic h3{font-size:1.4rem}
+.pic p{color:var(--mu);margin:6px 0 0;font-size:.9rem}
+label{display:block;font-size:.82rem;color:var(--mu);margin:10px 0 4px}
+input,select{width:100%;padding:11px;border:1px solid var(--ln);border-radius:10px;background:var(--bg);color:var(--tx);font:inherit}
+input:focus,select:focus{outline:2px solid var(--em);outline-offset:0}
+.r{display:flex;gap:10px}.r>*{flex:1}
+.big{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.k{background:var(--p2);border-radius:12px;padding:12px}.k b{display:block;font:800 1.5rem Outfit;color:var(--lm)}.k span{font-size:.76rem;color:var(--mu)}
+.note{font-size:.82rem;color:var(--mu);margin-top:10px}
+.al{background:#2a1210;color:#ffb3ab;border-left:4px solid var(--wa);padding:10px 12px;border-radius:8px;margin:7px 0;font-size:.9rem}
+.al.ok{background:var(--p2);color:var(--mu);border-color:var(--lm)}
+.th{width:54px;flex:0 0 54px}.th svg{width:54px;height:42px;background:var(--p2);border-radius:10px}
+.sc{overflow-x:auto}svg.ch{width:100%;height:auto;display:block;min-width:520px}
+table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:560px}th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--ln)}th{color:var(--mu);font-weight:500}
+.lgd{display:flex;gap:14px;font-size:.8rem;color:var(--mu);margin:10px 0 4px}.lgd i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px}
+.pos{color:var(--lm)}.neg{color:var(--wa)}
+button.s{padding:11px 16px;border-radius:10px;background:transparent;color:var(--tx);border:1px solid var(--ln);font:600 .95rem "DM Sans",sans-serif;cursor:pointer}
+footer{border-top:1px solid var(--ln);padding:26px 0 40px;color:var(--mu);font-size:.85rem}
+</style></head><body>
+<nav><div class="w"><div class="lg">Ember<b>.</b></div><div class="m"><a href="#home">Home</a><a href="#how">How it works</a><a href="#calc">Calculator</a><a href="#compare">Compare</a><a href="#log">Log</a></div></div></nav>
+
+<header class="w hero" id="home"><div>
+<span class="tag">WASTE → HEAT → LIGHT</span>
+<h1>Turn everyday waste into <em>electricity</em>.</h1>
+<p class="lead">Burn dry paper, leaves, wood or sawdust, light a bulb, and see how much energy each fuel really gives. Predict it, test it, compare it.</p>
+<div class="row"><a class="btn" href="#calc">Try the calculator</a><a class="btn g" href="#log">Log a run</a></div></div>
+<svg viewBox="0 0 200 240" aria-hidden="true"><defs><radialGradient id="gl"><stop offset="0" stop-color="#ffd27a"/><stop offset="1" stop-color="#ff7a1a" stop-opacity="0"/></radialGradient></defs><circle class="pulse" cx="100" cy="95" r="92" fill="url(#gl)"/><path d="M100 30c-34 0-56 24-56 54 0 22 12 34 22 46 6 8 8 14 8 22h52c0-8 2-14 8-22 10-12 22-24 22-46 0-30-22-54-56-54z" fill="#ffe3a3"/><path d="M84 150v-34l16 16 16-16v34" stroke="#ff7a1a" stroke-width="4" fill="none"/><rect x="74" y="156" width="52" height="10" rx="4" fill="#9aa69f"/><rect x="80" y="170" width="40" height="10" rx="4" fill="#7d8a83"/></svg></header>
+
+<section class="w" id="how"><h2>How it works</h2><p class="sub">The bulb is your meter: the longer it stays lit, the more energy the fuel produced.</p>
+<div class="g3"><div class="c step"><b>1</b><h3>Burn the waste</h3><p>Weigh your fuel in grams and burn it in the prototype chamber.</p></div>
+<div class="c step"><b>2</b><h3>Heat becomes power</h3><p>Energy = mass × heating value, and a small share becomes electricity.</p></div>
+<div class="c step"><b>3</b><h3>Time the bulb</h3><p>Seconds lit × bulb watts gives the real energy. Compare it with the prediction.</p></div></div></section>
+
+<section class="w" id="calc"><h2>How much energy can it generate?</h2><p class="sub">Pick a waste, enter the grams, and see the prediction.</p>
+<div class="tiles" id="tiles"></div>
+<div class="calc"><div class="c pic" id="pic"></div>
+<div class="c"><div class="r"><div><label for="g">Grams you are burning</label><input id="g" type="number" min="0.1" step="0.1" value="10"></div>
+<div><label for="eff">Overall efficiency (%)</label><input id="eff" type="number" min="0.1" max="100" step="0.1" value="2"></div></div>
+<div class="big"><div class="k"><b id="oq">–</b><span>Heat energy in the waste (MJ)</span></div><div class="k"><b id="oe">–</b><span>Estimated electricity (J)</span></div>
+<div class="k"><b id="ot">–</b><span id="otl">Bulb time (s)</span></div><div class="k"><b id="ok">–</b><span>Heat energy in kWh</span></div></div>
+<p class="note">Energy = grams × heating value. Electricity = heat × efficiency. Bulb time = electricity ÷ bulb watts. Efficiency is your own assumption; tune it using your real runs.</p></div></div>
+<h3 style="margin:26px 0 8px">Safety alerts</h3><div id="saf"></div></section>
+
+<section class="w" id="compare"><h2>Compare fuels you burned</h2><p class="sub">Choose a fuel and the grams for each row. Add as many rows as you need.</p>
+<div class="c"><div id="rows"></div><div class="row" style="margin:6px 0 14px"><button class="btn" id="add">+ Add another fuel</button></div>
+<div id="ver" style="font:700 1.05rem Outfit;color:var(--lm);margin-bottom:8px"></div><div class="sc"><svg class="ch" id="cmp" viewBox="0 0 800 260" role="img" aria-label="Predicted bulb time per fuel"></svg></div></div></section>
+
+<section class="w" id="log"><h2>Log and compare runs</h2><p class="sub">After each test, enter how long the bulb stayed lit. It uses the fuel and grams chosen in the calculator above.</p>
+<div class="c"><div class="r" style="flex-wrap:wrap;align-items:end">
+<div style="min-width:160px"><label for="w">Bulb power (W, see the label)</label><input id="w" type="number" min="0.1" step="0.1" value="3"></div>
+<div style="min-width:200px"><label for="act">Time the bulb stayed lit (seconds)</label><input id="act" type="number" min="0" step="1" placeholder="e.g. 30"></div>
+<button class="btn" id="log2" style="flex:0 0 auto">Save this run</button></div>
+<div class="row" style="margin:14px 0"><button class="s" id="demo">Load demo runs</button><button class="s" id="clr">Clear all</button></div>
+<div class="lgd"><span><i style="background:var(--em)"></i>Predicted (s)</span><span><i style="background:var(--lm)"></i>Actual (s)</span></div>
+<div class="sc"><svg class="ch" id="runs" viewBox="0 0 800 260" role="img" aria-label="Predicted versus actual"></svg></div>
+<div class="sc" style="margin-top:12px"><table><thead><tr><th>#</th><th>Fuel</th><th>Grams</th><th>Predicted</th><th>Actual</th><th>Actual energy</th><th>Error</th></tr></thead><tbody id="tb"></tbody></table></div>
+<p class="note">Actual energy = bulb watts × seconds lit. Demo runs are sample numbers, not real results.</p></div></section>
+
+<footer><div class="w">Heating values (LHV) are literature figures from the Ahmedabad, Ilorin and Mbeya City studies, not our own measurements. Dry leaves use the plant trimmings value. Sawdust is not in the dataset and is estimated as equal to wood. Moisture lowers real yield.</div></footer>
+
+<script>
+const IC=[
+`<svg viewBox="0 0 120 90"><rect x="28" y="14" width="56" height="68" rx="4" fill="#d9d4c4" transform="rotate(-8 56 48)"/><rect x="34" y="10" width="56" height="68" rx="4" fill="#f4f1e6"/><path d="M44 28h36M44 40h36M44 52h36M44 64h22" stroke="#b9b39d" stroke-width="3" stroke-linecap="round"/></svg>`,
+`<svg viewBox="0 0 120 90"><path d="M20 60C20 30 50 14 84 18 82 50 56 72 20 60Z" fill="#d9822b"/><path d="M26 58C44 46 62 34 80 22" stroke="#7a3f0e" stroke-width="3" fill="none"/><path d="M70 74C66 54 80 40 104 40 106 60 92 76 70 74Z" fill="#b5541a"/><path d="M72 72C84 62 94 52 102 42" stroke="#5e2a08" stroke-width="2.5" fill="none"/></svg>`,
+`<svg viewBox="0 0 120 90"><path d="M60 22C40 12 22 30 30 56 36 76 52 80 60 74 68 80 84 76 90 56 98 30 80 12 60 22Z" fill="#c8402f"/><path d="M60 22C60 14 64 8 72 6" stroke="#6b4a2a" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M62 14c8-8 18-4 18-4s-4 12-16 10" fill="#5fae3d"/><ellipse cx="60" cy="52" rx="13" ry="17" fill="#efe3b8"/><circle cx="60" cy="52" r="3" fill="#6b4a2a"/></svg>`,
+`<svg viewBox="0 0 120 90"><rect x="14" y="46" width="76" height="30" rx="6" fill="#8a5a2b"/><ellipse cx="90" cy="61" rx="14" ry="15" fill="#c48a4d"/><ellipse cx="90" cy="61" rx="8" ry="9" fill="none" stroke="#8a5a2b" stroke-width="2.5"/><rect x="26" y="16" width="60" height="28" rx="6" fill="#a06a35"/><ellipse cx="86" cy="30" rx="12" ry="14" fill="#d19a5b"/><ellipse cx="86" cy="30" rx="7" ry="8" fill="none" stroke="#a06a35" stroke-width="2.5"/></svg>`,
+`<svg viewBox="0 0 120 90"><path d="M10 78C24 50 42 26 60 26S96 50 110 78Z" fill="#d8b274"/><g fill="#b98f4f"><circle cx="48" cy="56" r="3"/><circle cx="66" cy="48" r="3"/><circle cx="78" cy="62" r="3"/><circle cx="38" cy="70" r="3"/><circle cx="60" cy="68" r="3"/><circle cx="90" cy="72" r="3"/></g><g fill="#ecd5a6"><circle cx="54" cy="38" r="2.5"/><circle cx="70" cy="34" r="2"/><circle cx="26" cy="74" r="2.5"/></g></svg>`,
+`<svg viewBox="0 0 120 90"><path d="M14 36L60 14 106 36 106 70 60 82 14 70Z" fill="#b98a55"/><path d="M14 36L60 50 106 36M60 50V82" fill="none" stroke="#8d6538" stroke-width="3"/><path d="M44 28L76 44V54L44 38Z" fill="#e1c795"/></svg>`];
+const M=[
+{n:"Paper",l:13.48,d:"Combustible and fairly dry.",s:["Burn small pieces only; paper ash can float and ignite nearby items.","Avoid glossy or inked paper, which can release fumes."]},
+{n:"Dry leaves",l:14.63,d:"Plentiful biomass that burns fast.",s:["Burn fast and throw sparks. Keep a small batch and a water bucket nearby.","Smoke irritates lungs; use outdoors or under an exhaust hood."]},
+{n:"Food waste",l:4.37,d:"Very wet, so it gives low energy.",s:["Very wet, so it burns poorly and smokes heavily. Dry it first.","Do not burn oily food, as grease can flare up."]},
+{n:"Wood",l:12.75,d:"Renewable and burns predictably.",s:["Never use painted or treated wood; it releases toxic fumes.","Embers stay hot for a long time; let the chamber cool before opening."]},
+{n:"Sawdust",l:12.75,est:1,d:"Wood by-product (value estimated).",s:["Fine dust is explosive when airborne. Add it in small amounts, never as a cloud.","Wear a dust mask when handling."]},
+{n:"Cardboard",l:13.6,d:"Common in municipal waste.",s:["Avoid waxed or coated boxes and tape, which can release fumes.","Keep pieces small to prevent flare-ups."]}];
+const $=i=>document.getElementById(i),K="w2e_runs";let runs=[],sel=0;
+try{runs=JSON.parse(localStorage.getItem(K)||"[]")}catch(e){}
+const save=()=>{try{localStorage.setItem(K,JSON.stringify(runs))}catch(e){}};
+const f=(x,d=1)=>isFinite(x)?x.toLocaleString("en",{maximumFractionDigits:d}):"–";
+const calc=(i,g,e,w)=>{const Q=g/1000*M[i].l*1000,J=Q*1000*e/100;return{Q,J,t:J/w}};
+const inp=()=>({i:sel,g:+$("g").value,e:+$("eff").value,w:+$("w").value});
+const lab=r=>`${M[r.i].n} ${f(r.g,0)} g`;
+$("tiles").innerHTML=M.map((m,i)=>`<button class="tile" data-i="${i}">${IC[i]}${m.n}<small>${m.l} MJ/kg</small></button>`).join("");
+document.querySelectorAll(".tile").forEach(b=>b.onclick=()=>{sel=+b.dataset.i;upd()});
+function upd(){const{i,g,e,w}=inp(),r=calc(i,g,e,w),m=M[i];
+document.querySelectorAll(".tile").forEach((b,k)=>b.classList.toggle("on",k==i));
+$("pic").innerHTML=`${IC[i]}<h3>${m.n}</h3><p>${m.d}<br>Heating value ${m.l} MJ/kg${m.est?" (estimate)":""}</p>`;
+$("oq").textContent=f(r.Q/1000,3);$("oe").textContent=f(r.J);$("ot").textContent=f(r.t,0);$("ok").textContent=f(r.Q/3600,3);$("otl").textContent="Bulb time at "+f(w,1)+" W (s)";
+let h=m.s.map(x=>`<div class="al">⚠️ ${x}</div>`).join("");
+if(g>50)h+=`<div class="al">🔥 ${f(g,0)} g is a large load for a prototype. Start with 50 g or less.</div>`;
+if(e>20)h+=`<div class="al">ℹ️ An efficiency above 20% is unrealistic for a small prototype.</div>`;
+h+=`<div class="al ok">General: work outdoors or in a ventilated area, keep water or a fire extinguisher nearby, wear gloves and eye protection, keep flammables away, and never leave the burner unattended.</div>`;
+$("saf").innerHTML=h}
+function chart(id,lb,ser,col){const s=$(id),W=800,H=260,L=46,B=44,T=14,mx=Math.max(1,...ser.flat().filter(isFinite))*1.12,n=lb.length;
+if(!n){s.innerHTML=`<text x="400" y="130" text-anchor="middle" fill="#8fa398" font-size="14">No runs saved yet. Save one or load demo runs.</text>`;return}
+const pw=(W-L-10)/n,bw=Math.min(50,pw*.7/ser.length);let o="";
+for(let k=0;k<=4;k++){const y=T+(H-T-B)*(1-k/4);o+=`<line x1="${L}" x2="${W}" y1="${y}" y2="${y}" stroke="#24352c"/><text x="${L-6}" y="${y+4}" text-anchor="end" font-size="11" fill="#8fa398">${f(mx*k/4,0)}</text>`}
+lb.forEach((t,j)=>{const cx=L+pw*(j+.5);ser.forEach((sr,q)=>{const v=sr[j];if(v==null)return;const h=(H-T-B)*v/mx,x=cx-bw*ser.length/2+q*bw;
+o+=`<rect x="${x}" y="${H-B-h}" width="${bw-3}" height="${h}" rx="4" fill="${col[q]}"/><text x="${x+(bw-3)/2}" y="${H-B-h-4}" text-anchor="middle" font-size="10" fill="#eef3ef">${f(v,0)}</text>`});
+o+=`<text x="${cx}" y="${H-B+16}" text-anchor="middle" font-size="11" fill="#8fa398">${t}</text>`});
+o+=`<text x="12" y="${(H-B)/2}" font-size="11" fill="#8fa398" transform="rotate(-90 12 ${(H-B)/2})" text-anchor="middle">seconds</text>`;s.innerHTML=o}
+let rows=[];try{rows=JSON.parse(localStorage.getItem("w2e_rows")||"[]")}catch(e){}
+if(rows.length<2)rows=[{i:0,g:10},{i:1,g:10}];
+const saveC=()=>{try{localStorage.setItem("w2e_rows",JSON.stringify(rows))}catch(e){}};
+function drawRows(){$("rows").innerHTML=rows.map((r,k)=>`<div class="r" style="align-items:end;margin-bottom:8px"><div class="th">${IC[r.i]}</div><div><label>Fuel ${k+1}</label><select onchange="setR(${k},'i',this.value)">${M.map((m,j)=>`<option value="${j}"${j==r.i?" selected":""}>${m.n}</option>`).join("")}</select></div><div><label>Grams burned</label><input type="number" min="0" step="0.1" value="${r.g}" oninput="setR(${k},'g',this.value)"></div>${rows.length>2?`<button class="s" style="flex:0 0 auto" onclick="rmC(${k})" aria-label="Remove fuel ${k+1}">✕</button>`:""}</div>`).join("")}
+window.setR=(k,p,v)=>{rows[k][p]=+v;saveC();if(p=="i")drawRows();drawCmp()};
+window.rmC=k=>{rows.splice(k,1);saveC();drawRows();drawCmp()};
+$("add").onclick=()=>{rows.push({i:Math.min(rows.length,M.length-1),g:10});saveC();drawRows();drawCmp()};
+function drawCmp(){const{e,w}=inp(),d=rows.map(r=>({...r,...calc(r.i,r.g,e,w)}));
+chart("cmp",d.map(lab),[d.map(x=>x.t)],["#ff7a1a"]);
+const s=[...d].sort((a,b)=>b.J-a.J);
+$("ver").textContent=!(s[0].J>0)?"Enter the grams for at least one fuel.":s[0].J===s[1].J?"The top fuels generate the same energy.":`${lab(s[0])} generates the most energy${s[1].J>0?`, ${f(s[0].J/s[1].J,2)}× more than ${lab(s[1])}`:""}.`}
+function draw(){chart("runs",runs.map((r,k)=>`#${k+1} ${M[r.i].n} ${f(r.g,0)}g`),[runs.map(r=>calc(r.i,r.g,r.e,r.w).t),runs.map(r=>r.a)],["#ff7a1a","#b8f25a"]);
+$("tb").innerHTML=runs.map((r,k)=>{const p=calc(r.i,r.g,r.e,r.w).t,er=p?(r.a-p)/p*100:0;
+return`<tr><td>${k+1}</td><td>${M[r.i].n}</td><td>${f(r.g,0)} g</td><td>${f(p,0)} s</td><td>${f(r.a,0)} s</td><td>${f(r.a*r.w,0)} J</td><td class="${Math.abs(er)<=15?"pos":"neg"}">${er>0?"+":""}${f(er,0)}%</td></tr>`}).join("")||`<tr><td colspan="7" style="color:var(--mu)">No runs yet.</td></tr>`}
+$("log2").onclick=()=>{const a=+$("act").value,{i,g,e,w}=inp();if($("act").value===""||!(a>=0)||!(g>0)||!(w>0)){$("act").focus();return}
+runs.push({i,g,e,w,a});save();$("act").value="";draw()};
+$("clr").onclick=()=>{runs=[];save();draw()};
+$("demo").onclick=()=>{runs=[[0,520],[1,610],[2,150],[3,430],[4,380],[5,500]].map(([i,a])=>({i,g:10,e:2,w:3,a}));save();draw()};
+["g","eff","w"].forEach(i=>$(i).addEventListener("input",()=>{upd();drawCmp()}));
+upd();draw();drawRows();drawCmp();
+</script></body></html>
